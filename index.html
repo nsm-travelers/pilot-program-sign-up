@@ -37,14 +37,6 @@
 
   .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
 
-  .preview-note {
-    background: var(--gold);
-    color: var(--ink);
-    font-size: 14px;
-    font-weight: 600;
-    padding: 8px 20px;
-    text-align: center;
-  }
 
   .masthead { background: var(--ink); color: #FFFFFF; }
   .masthead .wrap {
@@ -172,8 +164,6 @@
 </head>
 <body>
 
-<div class="preview-note" id="preview-note" hidden>Preview mode: sign-ups are not being saved yet.</div>
-
 <header class="masthead">
   <div class="wrap">
     <div class="kicker">The Travelers x NorthStar Media Group <span>Sales agent pilot</span></div>
@@ -292,7 +282,7 @@
 <script>
   // Where sign-ups are sent. Paste your form endpoint between the quotes,
   // for example a Formspree URL like "https://formspree.io/f/abcdwxyz".
-  // While this is empty the page runs in preview mode and saves nothing.
+  // While this is empty, submitting shows the confirmation but saves nothing.
   const FORM_ENDPOINT = "";
 
   const form = document.getElementById('signup-form');
@@ -303,8 +293,6 @@
   const formError = document.getElementById('form-error');
   const nameInput = document.getElementById('name');
   const emailInput = document.getElementById('email');
-
-  if (!FORM_ENDPOINT) document.getElementById('preview-note').hidden = false;
 
   function setError(input, message) {
     document.getElementById(input.id + '-error').textContent = message;
